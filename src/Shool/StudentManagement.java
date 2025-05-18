@@ -147,6 +147,7 @@ public class StudentManagement {
 
                         System.out.println("There is a total of " + studentList.size() + " students. ");
                     } else {
+
                         System.out.println("There is 1 student");
                     }
                     break;
