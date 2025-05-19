@@ -1,6 +1,7 @@
 package Shool;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -97,7 +98,7 @@ public class Student {
 
 
     //the following method print the student credential when called
-    public static void printStudent(ArrayList <Student> list){
+    public static void printStudent(LinkedList<Student> list){
         for (Student student : list ){
             System.out.println(student);
         }
