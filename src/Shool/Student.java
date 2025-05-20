@@ -104,16 +104,10 @@ public class Student {
         }
     }
     // The following method calculate the average
-    public static void average (double totalCount, double gpaTotal){
-        System.out.println("The GPA average is " + (gpaTotal/totalCount));
+    public static double average (double totalCount, double gpaTotal){
+        System.out.println("The average in the class is: ");
+        return (gpaTotal/totalCount);
     }
-    public static void total(ArrayList <Student> list){
-        double tot = 0;
-        for(Student gpa : list){
-            tot = gpa;
-        }
-    }
-
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Student student)) return false;

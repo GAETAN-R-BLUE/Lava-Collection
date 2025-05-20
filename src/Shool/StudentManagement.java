@@ -12,7 +12,7 @@ import java.util.*;
 public class StudentManagement {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
-        ArrayList<Student> list = new ArrayList<>(); //Stores only gpa for rapid access For rapid access
+   //     ArrayList<Double> studentGPA = new ArrayList<>(); //Stores only gpa for rapid access For rapid access
         LinkedList<Student> studentList = new LinkedList<>();// Linked list object to store all my student
         HashSet <Integer> usedID = new HashSet<>(); // Hashset table to make sure I do not have any duplicate ID
 //        TreeSet<LinkedList<Student>> alphaSort = new TreeSet<>(); // Tree set object to sort all my student in alphabetical order
@@ -32,7 +32,7 @@ public class StudentManagement {
                         else {
                             studentList.add(newStudent);
                             usedID.add(newStudent.getID());
-
+                     //       studentGPA.add(newStudent.getGPA());
                             System.out.println("Student Successfully added\n");
                         }
                         break;
@@ -57,6 +57,7 @@ public class StudentManagement {
                         if (studentToRemove != null) {
                             studentList.remove(studentToRemove);
                             usedID.remove(studentToRemove.getID());
+                     //      studentGPA.remove(studentToRemove.getGPA());
                             System.out.println("Student removed successfully");
                         } else {
                             System.out.println("Student not found");
@@ -189,8 +190,11 @@ public class StudentManagement {
                   }
 
                 case 14: {
-
-
+                    double total = 0;
+                    for(Student student : studentList) {
+                       total += student.getGPA();
+                    }
+                    double average = Student.average(studentList.size(), total);
                     break;
                 }
                   case 15: {
