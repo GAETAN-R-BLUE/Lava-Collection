@@ -14,7 +14,7 @@ public class Menu {
                 "\n" +
                 "-- SEARCH STUDENTS --\n" +
                 "6.  Search by Name\n" +
-                "7.  Search by Last ID\n" +
+                "7.  Search by ID\n" +
                 "\n" +
                 "-- PERFORMANCE FILTERS --\n" +
                 "8.  Display students with failing grades (≤ 60)\n" +

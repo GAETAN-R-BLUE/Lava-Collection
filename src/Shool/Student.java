@@ -74,16 +74,20 @@ public class Student {
 
     // The following method get the student credential
     public Student addNewStudent () {
-        System.out.println("Enter the last name");
-        lastName = userInput.nextLine();
-        System.out.println("Enter the First name");
-        firstName = userInput.nextLine();
-        System.out.println("Enter the ID");
-        ID = userInput.nextInt();
-        System.out.println("Enter the grade");
-        GPA = userInput.nextDouble();
-        Student newStudent = new Student(ID, lastName,firstName, GPA);
-        return newStudent;
+        try {
+            System.out.println("Enter the last name");
+            lastName = userInput.nextLine();
+            System.out.println("Enter the First name");
+            firstName = userInput.nextLine();
+            System.out.println("Enter the ID");
+            ID = userInput.nextInt();
+            System.out.println("Enter the grade");
+            GPA = userInput.nextDouble();
+            Student newStudent = new Student(ID, lastName, firstName, GPA);
+            return newStudent;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     //The following method get the student ID
     public static Student  getStudentID(int ID, ArrayList <Student> list){
@@ -105,7 +109,6 @@ public class Student {
     }
     // The following method calculate the average
     public static double average (double totalCount, double gpaTotal){
-        System.out.println("The average in the class is: ");
         return (gpaTotal/totalCount);
     }
     @Override

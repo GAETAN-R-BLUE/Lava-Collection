@@ -68,13 +68,13 @@ public class StudentManagement {
                   case 4: {
                       System.out.println("Enter the student ID");
                       int ID = userInput.nextInt();
-                      System.out.println("Enter the new grade");
+                      System.out.println("Enter the new gpa");
                       boolean studentFound = false;
                       double GPA = userInput.nextDouble();
                       for (Student student : studentList) {
                           if (student.getID() == ID) {
                               student.setGPA(GPA);
-                              System.out.println("Grade updated successfully");;
+                              System.out.println("GPA updated successfully");;
                               studentFound = true;
                               break;
                           }
@@ -124,12 +124,12 @@ public class StudentManagement {
                       }
                       break;
                   }
-                    //CAse 8 display all the student based on the grade (Failing students)
+                    //CAse 8 display all the student based on the GPA (Failing students)
                     case 8: {
                         boolean found = false;
                         for (Student student : studentList) {
-                            if (student.getGPA() <= 60) {
-                                System.out.println(student.getFirstName() + " " + student.getLastName() + " Grade = " + student.getGPA());
+                            if (student.getGPA() <= 2.99) {
+                                System.out.println(student.getFirstName() + " " + student.getLastName() + " GPA = " + student.getGPA());
                                 found = true;
                             }
                         }
@@ -138,15 +138,14 @@ public class StudentManagement {
                         }
                         break;
                     }
-                    //CAse 8 display all the student based on the grade (Passing students)
+                    //CAse 8 display all the student based on the GPA (Passing students)
                   case 9: {
                       boolean found = false;
                         for (Student student : studentList) {
-                            if (student.getGPA() > 60) {
-                                System.out.println(student.getFirstName() + " " + student.getLastName() + " Grade =" + student.getGPA());
+                            if (student.getGPA() > 2.99) {
+                                System.out.println(student.getFirstName() + " " + student.getLastName() + " GPA =" + student.getGPA());
                                 found = true;
                             }
-
                         }
                         if (!found){
                             System.out.println("No student");
@@ -163,7 +162,6 @@ public class StudentManagement {
 
                 case 11:{
                     studentList.sort(Comparator.comparing(Student::getLastName, String.CASE_INSENSITIVE_ORDER));
-
                     System.out.println("Student list sorted\n");
                         Student.printStudent(studentList);
                         break;
@@ -188,13 +186,14 @@ public class StudentManagement {
                       }
                       break;
                   }
-
+                //This calculates the great point average of the entire class
                 case 14: {
                     double total = 0;
                     for(Student student : studentList) {
                        total += student.getGPA();
                     }
                     double average = Student.average(studentList.size(), total);
+                    System.out.println("Average GPA: " + average);
                     break;
                 }
                   case 15: {
