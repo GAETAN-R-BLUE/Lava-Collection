@@ -9,12 +9,12 @@ public class Student {
     private int  ID;
     private String lastName;
     private String firstName;
-    private double grade;
+    private double GPA;
     Scanner userInput = new Scanner(System.in);
 
     //The following is a default constructor for the student object
     public Student (){
-        grade = 0;
+        GPA = 0;
         ID = 0;
         firstName = "name";
         lastName = "name";
@@ -24,7 +24,7 @@ public class Student {
         this.ID = ID;
         this.lastName = lastName;
         this.firstName = firstName;
-        this.grade = grade;
+        this.GPA = grade;
         this.userInput = userInput;
     }
 
@@ -37,10 +37,10 @@ public class Student {
     }
 
     // constructor for my student object
-    public Student (int ID, String lastName,String firstName, double grade) {
+    public Student (int ID, String lastName,String firstName, double GPA) {
         this.ID =  ID;
         this.lastName = lastName;
-        this.grade = grade;
+        this.GPA = GPA;
         this.firstName = firstName;
 
     }
@@ -63,13 +63,13 @@ public class Student {
     }
 
     //getter method for grade
-    public double getGrade() {
-        return grade;
+    public double getGPA() {
+        return GPA;
     }
 
     // setter method for grade
-    public void setGrade(double grade) {
-        this.grade = grade;
+    public void setGPA(double GPA) {
+        this.GPA = GPA;
     }
 
     // The following method get the student credential
@@ -81,8 +81,8 @@ public class Student {
         System.out.println("Enter the ID");
         ID = userInput.nextInt();
         System.out.println("Enter the grade");
-        grade = userInput.nextDouble();
-        Student newStudent = new Student(ID, lastName,firstName,grade);
+        GPA = userInput.nextDouble();
+        Student newStudent = new Student(ID, lastName,firstName, GPA);
         return newStudent;
     }
     //The following method get the student ID
@@ -103,11 +103,21 @@ public class Student {
             System.out.println(student);
         }
     }
+    // The following method calculate the average
+    public static void average (double totalCount, double gpaTotal){
+        System.out.println("The GPA average is " + (gpaTotal/totalCount));
+    }
+    public static void total(ArrayList <Student> list){
+        double tot = 0;
+        for(Student gpa : list){
+            tot = gpa;
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Student student)) return false;
-        return ID == student.ID && Double.compare(grade, student.grade) == 0 && Objects.equals(lastName, student.lastName);
+        return ID == student.ID && Double.compare(GPA, student.GPA) == 0 && Objects.equals(lastName, student.lastName);
     }
 
     @Override
@@ -115,7 +125,7 @@ public class Student {
         return
                 "Name: " + firstName + " " + lastName + "\n" +
                 "ID: " + ID + "\n" +
-                "Grade: " + grade + "\n";
+                "Grade: " + GPA + "\n";
     }
 }
 /* ********************************

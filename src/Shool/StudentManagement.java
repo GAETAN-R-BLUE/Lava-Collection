@@ -2,7 +2,9 @@
  * In this program, I am learning the java collection and object-oriented
  * programing.
  * Name: Gaetan, 0101111
+ *
  * ***********************************************************************/
+
 package Shool;
 
 import java.util.*;
@@ -10,16 +12,17 @@ import java.util.*;
 public class StudentManagement {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
-        ArrayList<Student> list = new ArrayList<>(); // For rapid access
+        ArrayList<Student> list = new ArrayList<>(); //Stores only gpa for rapid access For rapid access
         LinkedList<Student> studentList = new LinkedList<>();// Linked list object to store all my student
         HashSet <Integer> usedID = new HashSet<>(); // Hashset table to make sure I do not have any duplicate ID
-        TreeSet<LinkedList<Student>> alphaSort = new TreeSet<>(); // Tree set object to sort all my student in alphabetical order
+//        TreeSet<LinkedList<Student>> alphaSort = new TreeSet<>(); // Tree set object to sort all my student in alphabetical order
 
         while (true) {
             try {
               Menu.showMenu(); // Calling the menu function to display the menu to choose from
               int choice = userInput.nextInt();
               switch (choice) {
+                  //Case 1 logic track if an ID is already in use, and add a new student to the list
                     case 1: {
                         Student newStudent = new Student().addNewStudent();
                         // The following track if an ID is already in use
@@ -34,11 +37,13 @@ public class StudentManagement {
                         }
                         break;
                     }
+                    //Case 2 display all the student within the list with all their attributes
                     case 2: {
                         System.out.println("**** Student List ****\n");
                         Student.printStudent(studentList);
                         break;
                     }
+                    //case 3 remove a student from the list
                     case 3: {
                         Student studentToRemove = null;
                         System.out.println("Enter the student ID");
@@ -58,21 +63,22 @@ public class StudentManagement {
                         }
                         break;
                     }
+                    //Case 4 update the student GPA
                   case 4: {
                       System.out.println("Enter the student ID");
                       int ID = userInput.nextInt();
                       System.out.println("Enter the new grade");
                       boolean studentFound = false;
-                      double newGrade = userInput.nextDouble();
+                      double GPA = userInput.nextDouble();
                       for (Student student : studentList) {
                           if (student.getID() == ID) {
-                              student.setGrade(newGrade);
+                              student.setGPA(GPA);
                               System.out.println("Grade updated successfully");;
                               studentFound = true;
                               break;
                           }
                       }
-                      if (studentFound != true) {
+                      if (!studentFound) {
                           System.out.println("Student not found");
                           break;
                       }
@@ -83,7 +89,7 @@ public class StudentManagement {
                       System.out.println("The list has been clear successfully");
                       break;
                   }
-                  // The following search a student based on the ID
+                  // Case :The following search a student based on the Last name
                     case 6: {
                         userInput.nextLine();
                         System.out.println("Enter the student Last name");
@@ -95,7 +101,7 @@ public class StudentManagement {
                                 studentFound = true;
                             }
                         }
-                        if (studentFound != true) {
+                        if (!studentFound) {
                             System.out.println("Student not found");
                         }
                         break;
@@ -112,56 +118,63 @@ public class StudentManagement {
                               break;
                           }
                       }
-                      if (studentFound != true){
+                      if (!studentFound){
                           System.out.println("Student not found");
                       }
                       break;
                   }
-
+                    //CAse 8 display all the student based on the grade (Failing students)
                     case 8: {
+                        boolean found = false;
                         for (Student student : studentList) {
-                            if (student.getGrade() <= 60) {
-                                System.out.println(student.getFirstName() + " " + student.getLastName() + " Grade = " + student.getGrade());
+                            if (student.getGPA() <= 60) {
+                                System.out.println(student.getFirstName() + " " + student.getLastName() + " Grade = " + student.getGPA());
+                                found = true;
                             }
-                            else {
-                                System.out.println("There is no failing student");
-                            }
+                        }
+                        if (!found){
+                            System.out.println("No student");
                         }
                         break;
                     }
+                    //CAse 8 display all the student based on the grade (Passing students)
                   case 9: {
+                      boolean found = false;
                         for (Student student : studentList) {
-                            if (student.getGrade() > 60) {
-                                System.out.println(student.getFirstName() + " " + student.getLastName() + " Grade =" + student.getGrade());
+                            if (student.getGPA() > 60) {
+                                System.out.println(student.getFirstName() + " " + student.getLastName() + " Grade =" + student.getGPA());
+                                found = true;
                             }
-                            else {
-                                System.out.println("There is no passing student");
-                            }
+
+                        }
+                        if (!found){
+                            System.out.println("No student");
                         }
                         break;
                     }
+                    //Case 10 sort all the student based on the grade
                 case 10: {
-                        Collections.sort(studentList, Comparator.comparingDouble(Student::getGrade));
+                        studentList.sort(Comparator.comparingDouble(Student::getGPA));
                         System.out.println("Student list sorted\n");
                         Student.printStudent(studentList);
                     }
                     break;
 
                 case 11:{
-                    Collections.sort(studentList, Comparator.comparing(Student::getLastName, String.CASE_INSENSITIVE_ORDER));
+                    studentList.sort(Comparator.comparing(Student::getLastName, String.CASE_INSENSITIVE_ORDER));
 
                     System.out.println("Student list sorted\n");
                         Student.printStudent(studentList);
                         break;
                     }
                 case 12:{
-                    Collections.sort(studentList, Comparator.comparing(Student::getFirstName, String.CASE_INSENSITIVE_ORDER));
+                    studentList.sort(Comparator.comparing(Student::getFirstName, String.CASE_INSENSITIVE_ORDER));
 
                     System.out.println("Student list sorted\n");
                         Student.printStudent(studentList);
                         break;
                     }
-                case 14: {
+                case 13: {
                       if (studentList.isEmpty()) {
                           System.out.println("There is no student");
                       }
@@ -174,14 +187,15 @@ public class StudentManagement {
                       }
                       break;
                   }
-                  case 15: {
-                     alphaSort.add(studentList);
-                      System.out.println(alphaSort);
-                      break;
-                  }
-                case 16: {
-                    return;
+
+                case 14: {
+
+
+                    break;
                 }
+                  case 15: {
+                      return;
+                  }
             }
         }
             catch (Exception e){

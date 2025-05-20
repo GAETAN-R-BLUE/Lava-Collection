@@ -21,13 +21,13 @@ public class Menu {
                 "9.  Display students with passing grades (> 60)\n" +
                 "\n" +
                 "-- SORT STUDENTS --\n" +
-                "10. Sort by grade\n" +
+                "10. Sort by GPA\n" +
                 "11. Sort by last name\n" +
                 "12. Sort by first name\n" +
-                "13. Sort by alphabet" +
-                "\n" +
+
                 "-- OTHER OPTIONS --\n" +
-                "14. Show total number of students\n"+
+                "13. Show total number of students\n" +
+                "14. Calculate the average GPA: \n"+
                 "15. Exit");
     }
 }
