@@ -12,7 +12,7 @@ public class Student {
     private double GPA;
     Scanner userInput = new Scanner(System.in);
 
-    //The following is a default constructor for the student object
+    //  The following is a default constructor for the student object
     public Student (){
         GPA = 0;
         ID = 0;
