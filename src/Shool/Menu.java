@@ -25,7 +25,7 @@ public class Menu {
                 "11. Sort by last name\n" +
                 "12. Sort by first name\n" +
 
-                "-- OTHER OPTIONS --\n" +
+                "-- OTHER OPTIONS ---\n" +
                 "13. Show total number of students\n" +
                 "14. Calculate the average GPA: \n"+
                 "15. Exit");
