@@ -33,13 +33,13 @@ public class StudentManagement {
                             studentList.add(newStudent);
                             usedID.add(newStudent.getID());
                      //       studentGPA.add(newStudent.getGPA());
-                            System.out.println("Student Successfully added\n");
+                            System.out.println(" Student Successfully added\n");
                         }
                         break;
                     }
                     //Case 2 display all the student within the list with all their attributes
                     case 2: {
-                        System.out.println("**** Student List ****\n");
+                        System.out.println("*** Student List ***\n");
                         Student.printStudent(studentList);
                         break;
                     }

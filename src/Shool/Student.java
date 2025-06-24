@@ -16,8 +16,8 @@ public class Student {
     public Student (){
         GPA = 0;
         ID = 0;
-        firstName = "name";
-        lastName = "name";
+        firstName = "name ";
+        lastName = "name ";
     }
 
     public Student(int ID, String lastName, String firstName, double grade, Scanner userInput) {

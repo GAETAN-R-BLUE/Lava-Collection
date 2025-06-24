@@ -12,7 +12,7 @@ public class Menu {
                 "4.  Update student grade\n" +
                 "5.  Clear all students\n" +
                 "\n" +
-                "-- SEARCH STUDENTS --\n" +
+                "--  SEARCH STUDENTS  --\n" +
                 "6.  Search by Name\n" +
                 "7.  Search by ID\n" +
                 "\n" +
